@@ -25,39 +25,31 @@ To facilitate team debugging and demonstrations, this module has built-in virtua
 
 > **Prerequisite**: Ensure ROS2 Humble is installed, this package is placed in the `src/`directory of your workspace, and compilation is complete.
 
-1. 
-
-   **Start the Risk Situation Awareness Node**
+1. **Start the Risk Situation Awareness Node**
 
    ```
    # Terminal 1
    source install/setup.bash
    ros2 run multi_agent_decision risk_node
    ```
-
-2. 
-
-   **Start the Mock Drone Data Publisher (Simulated Input)**
+   
+2. **Start the Mock Drone Data Publisher (Simulated Input)**
 
    ```
    # Terminal 2
    source install/setup.bash
    python3 ~/mock_drone.py
    ```
-
-3. 
-
-   **Start the Core Decision and Operational Control Node**
+   
+3. **Start the Core Decision and Operational Control Node**
 
    ```
    # Terminal 3
    source install/setup.bash
    ros2 run multi_agent_decision decision_node
    ```
-
-4. 
-
-   **Start the Multi-Agent Central Scheduling Hub (Two-vehicle formation)**
+   
+4. **Start the Multi-Agent Central Scheduling Hub (Two-vehicle formation)**
 
    ```
    # Terminal 4
@@ -67,25 +59,15 @@ To facilitate team debugging and demonstrations, this module has built-in virtua
 
 ### RViz Visualization and Interaction
 
-1. 
+1. Open `rviz2`.
 
-   Open `rviz2`.
+2. **Add Map**: Set the `Fixed Frame`to `map`. Add a display type of `Map`. Subscribe to the topic `/warning_map`to see the dynamically generated ecological risk warning map.
 
-2. 
+3. **Add Path**: Add a display type of `Path`. Subscribe to the topic `/planned_path`to observe the globally planned path by the algorithm.
 
-   **Add Map**: Set the `Fixed Frame`to `map`. Add a display type of `Map`. Subscribe to the topic `/warning_map`to see the dynamically generated ecological risk warning map.
+4. **Add Formation**: Add a display type of `Marker`. Subscribe to the topic `/fleet_markers`to see the **yellow** and **blue** virtual execution vehicles.
 
-3. 
-
-   **Add Path**: Add a display type of `Path`. Subscribe to the topic `/planned_path`to observe the globally planned path by the algorithm.
-
-4. 
-
-   **Add Formation**: Add a display type of `Marker`. Subscribe to the topic `/fleet_markers`to see the **yellow** and **blue** virtual execution vehicles.
-
-5. 
-
-   **Interactive Demo**: Use the `2D Goal Pose`tool in the top toolbar and click on a red high-risk target area within the RViz map to set a goal. Subsequently, you will see detailed **resource scheduling simulation logs** in the terminal and observe in real-time on RViz the complete process of **multi-vehicle deployment and dynamic path planning**!
+5. **Interactive Demo**: Use the `2D Goal Pose`tool in the top toolbar and click on a red high-risk target area within the RViz map to set a goal. Subsequently, you will see detailed **resource scheduling simulation logs** in the terminal and observe in real-time on RViz the complete process of **multi-vehicle deployment and dynamic path planning**!
 
 ------
 
